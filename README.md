@@ -85,3 +85,18 @@ dvc stage add -n evaluate \
 ```
 dvc exp run --set-param "train.img_size=128"
 ```
+```
+git commit -m 'experiment: first run'
+```
+```
+dvc exp run -S "train.img_size=384"
+```
+```
+dvc metrics diff
+```
+
+>> 
+Path                           Metric      HEAD     workspace    Change
+results/evaluate/metrics.json  dice_multi  0.86208  0.87073      0.00865
+
+2. hyperparameter tuning 

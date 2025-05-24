@@ -77,3 +77,11 @@ dvc stage add -n evaluate \
   -o results python src/evaluate.py
 ```
 
+
+## Step3: conduct experiments
+
+1. conduct experiment with assigned parameters 
+
+```
+dvc exp run --set-param "train.img_size=128"
+```

@@ -20,3 +20,14 @@ stages:
     - train
     outs:
     - models/model.pkl
+  evaluate:
+    cmd: python src/evaluate.py
+    deps:
+    - data/test_data
+    - models/model.pkl
+    - src/evaluate.py
+    params:
+    - base
+    - evaluate
+    outs:
+    - results

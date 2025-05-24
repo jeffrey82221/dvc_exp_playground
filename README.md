@@ -38,3 +38,7 @@ python src/evaluate.py
 ```
 
 ## Step2: add experiment stages to DVC
+
+```
+dvc init
+```

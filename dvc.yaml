@@ -10,3 +10,13 @@ stages:
     outs:
     - data/test_data
     - data/train_data
+  train:
+    cmd: python src/train.py
+    deps:
+    - data/train_data
+    - src/train.py
+    params:
+    - base
+    - train
+    outs:
+    - models/model.pkl

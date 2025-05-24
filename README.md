@@ -44,7 +44,7 @@ python src/evaluate.py
 dvc init
 ```
 
-2. add first stage:
+2. add first stage (`data_split`):
 ```
 dvc stage add --name data_split \
   --params base,data_split \
@@ -58,4 +58,12 @@ git add dvc.yaml data/.gitignore
 dvc config core.autostage true
 ```
 
-4. 
+4. add second stage (`train`):
+
+```
+dvc stage add -n train \
+  -p base,train \
+  -d src/train.py -d data/train_data \
+  -o models/model.pkl \
+  python src/train.py
+```

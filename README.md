@@ -67,3 +67,13 @@ dvc stage add -n train \
   -o models/model.pkl \
   python src/train.py
 ```
+
+5. add third stage (`evaluate`)
+
+```
+dvc stage add -n evaluate \
+  -p base,evaluate \
+  -d src/evaluate.py -d models/model.pkl -d data/test_data \
+  -o results python src/evaluate.py
+```
+

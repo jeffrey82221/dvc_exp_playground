@@ -108,24 +108,10 @@ dvc exp run --name "arch-size" --queue \
 ```
 (This is a grid search)
 >>>
-Queueing with overrides '{'params.yaml': ['train.batch_size=8']}'.    
-Queued experiment 'glary-scut' for future execution.
-Queueing with overrides '{'params.yaml': ['train.batch_size=16']}'.
-Queued experiment 'gaunt-aits' for future execution.
-Queueing with overrides '{'params.yaml': ['train.batch_size=24']}'.
-Queued experiment 'surer-soya' for future execution.
-
 ```
 dvc queue status
 ```
 >>>
-Task     Name        Created    Status
-73f5a7c  tippy-snub  01:45 PM   Queued
-534169f  aural-dunk  01:45 PM   Queued
-f4284da  aloof-lees  01:45 PM   Queued
-
-Worker status: 0 active, 0 idle
-
 ```
-dvc queue start
+dvc queue start -j 4
 ```

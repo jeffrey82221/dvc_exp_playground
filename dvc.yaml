@@ -1,0 +1,12 @@
+stages:
+  data_split:
+    cmd: python src/data_split.py
+    deps:
+    - data/pool_data
+    - src/data_split.py
+    params:
+    - base
+    - data_split
+    outs:
+    - data/test_data
+    - data/train_data

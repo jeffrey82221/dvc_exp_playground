@@ -39,6 +39,23 @@ python src/evaluate.py
 
 ## Step2: add experiment stages to DVC
 
+1. init dvc:
 ```
 dvc init
 ```
+
+2. add first stage:
+```
+dvc stage add --name data_split \
+  --params base,data_split \
+  --deps data/pool_data --deps src/data_split.py \
+  --outs data/train_data --outs data/test_data \
+  python src/data_split.py
+```
+3. add dvc control to git
+```
+git add dvc.yaml data/.gitignore
+dvc config core.autostage true
+```
+
+4. 

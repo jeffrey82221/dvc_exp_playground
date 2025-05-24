@@ -107,11 +107,37 @@ dvc exp run --name "arch-size" --queue \
 -S 'train.img_size=128,256'
 ```
 (This is a grid search)
+dvc exp run --name "arch-size" --queue \
+-S 'train.arch=alexnet' \
+-S 'train.img_size=128'
 >>>
+
+Queueing with overrides '{'params.yaml': ['train.arch=alexnet', 'train.img_size=128']}'.
+Queued experiment 'arch-size-1' for future execution.
+Queueing with overrides '{'params.yaml': ['train.arch=alexnet', 'train.img_size=256']}'.
+Queued experiment 'arch-size-2' for future execution.
+Queueing with overrides '{'params.yaml': ['train.arch=resnet34', 'train.img_size=128']}'.
+Queued experiment 'arch-size-3' for future execution.
+Queueing with overrides '{'params.yaml': ['train.arch=resnet34', 'train.img_size=256']}'.
+Queued experiment 'arch-size-4' for future execution.
+Queueing with overrides '{'params.yaml': ['train.arch=squeezenet1_1', 'train.img_size=128']}'.
+Queued experiment 'arch-size-5' for future execution.
+Queueing with overrides '{'params.yaml': ['train.arch=squeezenet1_1', 'train.img_size=256']}'.
+Queued experiment 'arch-size-6' for future execution.
+
 ```
 dvc queue status
 ```
 >>>
+Task     Name         Created    Status
+0d4ee41  arch-size-1  02:02 PM   Queued
+5b2e53a  arch-size-2  02:02 PM   Queued
+632daee  arch-size-3  02:02 PM   Queued
+7ee2b79  arch-size-4  02:02 PM   Queued
+73aa7be  arch-size-5  02:02 PM   Queued
+4e4a5ca  arch-size-6  02:02 PM   Queued
+
+Worker status: 0 active, 0 idle
 ```
-dvc queue start -j 4
+dvc queue start -j 6
 ```

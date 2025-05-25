@@ -107,9 +107,6 @@ dvc exp run --name "arch-size" --queue \
 -S 'train.img_size=128,256'
 ```
 (This is a grid search)
-dvc exp run --name "arch-size" --queue \
--S 'train.arch=alexnet' \
--S 'train.img_size=128'
 >>>
 
 Queueing with overrides '{'params.yaml': ['train.arch=alexnet', 'train.img_size=128']}'.

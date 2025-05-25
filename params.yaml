@@ -6,7 +6,7 @@ data_split:
   - REGION_1
 train:
   valid_pct: 0.1
-  arch: shufflenet_v2_x2_0
+  arch: resnet34
   img_size: 384
   batch_size: 16
   fine_tune_args:

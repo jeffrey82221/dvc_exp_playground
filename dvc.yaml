@@ -20,6 +20,8 @@ stages:
     - train
     outs:
     - models/model.pkl
+    - models/model.pth
+    - results/train
   evaluate:
     cmd: python src/evaluate.py
     deps:
@@ -30,7 +32,14 @@ stages:
     - base
     - evaluate
     outs:
-    - results
+    - results/evaluate
+  sagemaker:
+    cmd: cp models/model.pth sagemaker/code/model.pth && cd sagemaker && tar -cpzf
+      model.tar.gz code/ && cd .. && mv sagemaker/model.tar.gz .  && rm sagemaker/code/model.pth
+    deps:
+    - models/model.pth
+    outs:
+    - model.tar.gz
 params:
 - results/train/params.yaml
 metrics:

@@ -48,7 +48,7 @@ stages:
           random_seed: 42
         train:
           valid_pct: 0.1
-          arch: shufflenet_v2_x2_0
+          arch: resnet34
           img_size: 384
           batch_size: 16
           fine_tune_args:
@@ -57,8 +57,8 @@ stages:
     outs:
     - path: models/model.pkl
       hash: md5
-      md5: a8df22afe2196c2ce7fb695773868836
-      size: 203846
+      md5: f0dd305f7e972c8550f0a6a15b120376
+      size: 260088311
   evaluate:
     cmd: python src/evaluate.py
     deps:
@@ -69,8 +69,8 @@ stages:
       nfiles: 24
     - path: models/model.pkl
       hash: md5
-      md5: a8df22afe2196c2ce7fb695773868836
-      size: 203846
+      md5: f0dd305f7e972c8550f0a6a15b120376
+      size: 260088311
     - path: src/evaluate.py
       hash: md5
       md5: 60e357bcea27d237df4034f0b837dd4c
@@ -84,6 +84,6 @@ stages:
     outs:
     - path: results
       hash: md5
-      md5: 8caf0bbf2f9233e8002f70a4d28030d6.dir
-      size: 1309469
+      md5: e1068869ea3bdb88688ab8b64f01eb7a.dir
+      size: 1287700
       nfiles: 11

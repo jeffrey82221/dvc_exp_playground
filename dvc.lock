@@ -57,8 +57,17 @@ stages:
     outs:
     - path: models/model.pkl
       hash: md5
-      md5: f0dd305f7e972c8550f0a6a15b120376
+      md5: 161ccdb673a1f20d7b8407001cb442a9
       size: 260088311
+    - path: models/model.pth
+      hash: md5
+      md5: 32b201c2ca4090e6579a68574dafdb63
+      size: 260036239
+    - path: results/train
+      hash: md5
+      md5: 3fafbe006b91161b499d99872fc8324c.dir
+      size: 945
+      nfiles: 5
   evaluate:
     cmd: python src/evaluate.py
     deps:
@@ -69,7 +78,7 @@ stages:
       nfiles: 24
     - path: models/model.pkl
       hash: md5
-      md5: f0dd305f7e972c8550f0a6a15b120376
+      md5: 161ccdb673a1f20d7b8407001cb442a9
       size: 260088311
     - path: src/evaluate.py
       hash: md5
@@ -82,8 +91,8 @@ stages:
         evaluate:
           n_samples_to_save: 10
     outs:
-    - path: results
+    - path: results/evaluate
       hash: md5
-      md5: e1068869ea3bdb88688ab8b64f01eb7a.dir
+      md5: 5d4f506f43df81b080ffa74f6859f92a.dir
       size: 1287700
       nfiles: 11
